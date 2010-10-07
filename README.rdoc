@@ -1,17 +1,37 @@
 = romp
 
-Description goes here.
+Romp is a lightweight {Streaming Text Oriented Messaging Protocol}[http://stomp.codehaus.org/Protocol]
+for Ruby.  Stomp is a text-based wire format that lets clients communicate through a
+variety Stomp message brokers, providing interoperable, cross-language messaging.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+== Getting started
+
+Install a {stomp broker}[http://stomp.codehaus.org/Brokers] and start it up. Both
+{StompServer}[http://stompserver.rubyforge.org] and {CoilMQ}[http://code.google.com/p/coilmq]
+don't seem to handle `ack:auto` correctly, so I've been testing with {HornetQ}[http://jboss.org/hornetq].
+
+  git clone git://github.com/jmesnil/hornetq-stomp.git
+  cd hornetq-stomp
+  ant server
+
+== Usage
+
+  require 'romp'
+
+  r1 = Romp.new("localhost", 61613)
+  r2 = Romp.new("localhost", 61613)
+
+  r1.with_connection(:login => "foo", :password => "password") do
+    r1.send("foo", :destination => "/queue/a")
+    r1.send("bar", :destination => "/queue/a")
+  end
+
+  r2.with_connection(:login => "bar", :password => "secret") do
+    r2.subscribe(:destination => "/queue/a")
+    puts r2.receive.body # => foo
+    puts r2.receive.body # => bar
+  end
 
 == Copyright
 
-Copyright (c) 2010 ninjudd. See LICENSE for details.
+Copyright (c) 2010 Justin Balthrop. See LICENSE for details.
