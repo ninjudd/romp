@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{romp}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ninjudd"]
   s.date = %q{2010-10-07}
-  s.description = %q{Romp is a lightweight Streaming Text Oriented Messaging Protocol for Ruby}
+  s.description = %q{Romp is a lightweight Stomp client for Ruby}
   s.email = %q{git@justinbalthrop.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/romp.rb",
+     "romp.gemspec",
      "test/helper.rb",
      "test/test_romp.rb"
   ]
