@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "romp"
     gem.summary = %Q{A Stomp client library for Ruby}
-    gem.description = %Q{Romp is a lightweight Streaming Text Oriented Messaging Protocol for Ruby}
+    gem.description = %Q{Romp is a lightweight Stomp client for Ruby}
     gem.email = "git@justinbalthrop.com"
     gem.homepage = "http://github.com/ninjudd/romp"
     gem.authors = ["ninjudd"]

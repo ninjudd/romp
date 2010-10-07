@@ -1,7 +1,7 @@
 = romp
 
 Romp is a lightweight {Streaming Text Oriented Messaging Protocol}[http://stomp.codehaus.org/Protocol]
-for Ruby.  Stomp is a text-based wire format that lets clients communicate through a
+client for Ruby.  Stomp is a text-based wire format that lets clients communicate through a
 variety Stomp message brokers, providing interoperable, cross-language messaging.
 
 == Getting started
